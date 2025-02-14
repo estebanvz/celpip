@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: 'https://estebanvz.github.io',
   base: '/celpip/',
+  output: "static",
   vite: {
     plugins: [tailwindcss()],
     server: {
