@@ -5,7 +5,7 @@
             "id": 1,
             "question": "Challenges of Artificial Intelligence",
             "type": "listening",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/conversation1/conversation1.mp3",
+            "audioUrl": "audio/celpip-exam7-question1/conversation1/conversation1.mp3",
             "next": 2,
             "timeLimit": 160
         },
@@ -27,7 +27,7 @@
                 "summary"
             ],
             "explanation": "Laura is stressed about developing a new AI tool.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions1/00-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions1/00-question.mp3"
         },
         {
             "id": 3,
@@ -47,7 +47,7 @@
                 "detail"
             ],
             "explanation": "Laura's main issue is integrating machine learning algorithms effectively.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions1/01-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions1/01-question.mp3"
         },
         {
             "id": 4,
@@ -60,20 +60,20 @@
                 "Expand her team"
             ],
             "answer": "Consider augmenting it",
-            "next": null,
+            "next": 5,
             "timeLimit": 30,
             "tags": [
                 "solution suggestion",
                 "strategy"
             ],
             "explanation": "James suggests that Laura considers augmenting her data to improve the quality.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions1/02-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions1/02-question.mp3"
         },
         {
             "id": 5,
             "question": "Challenges of Artificial Intelligence",
             "type": "listening",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/conversation2/conversation2.mp3",
+            "audioUrl": "audio/celpip-exam7-question1/conversation2/conversation2.mp3",
             "next": 6,
             "timeLimit": 160
         },
@@ -95,7 +95,7 @@
                 "summary"
             ],
             "explanation": "Laura finds presenting AI data to be complex.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions2/00-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions2/00-question.mp3"
         },
         {
             "id": 7,
@@ -115,7 +115,7 @@
                 "presentation techniques"
             ],
             "explanation": "James suggests using clear graphs to explain the findings.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions2/01-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions2/01-question.mp3"
         },
         {
             "id": 8,
@@ -128,20 +128,20 @@
                 "Cut the Q&A session short"
             ],
             "answer": "Stay calm and say you'll check if unsure",
-            "next": null,
+            "next": 9,
             "timeLimit": 30,
             "tags": [
                 "presentation skills",
                 "advice"
             ],
             "explanation": "James advises her to stay calm and say she'll look into any unknown answers.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions2/02-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions2/02-question.mp3"
         },
         {
             "id": 9,
             "question": "Challenges of Artificial Intelligence",
             "type": "listening",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/conversation3/conversation3.mp3",
+            "audioUrl": "audio/celpip-exam7-question1/conversation3/conversation3.mp3",
             "next": 10,
             "timeLimit": 160
         },
@@ -163,7 +163,7 @@
                 "summary"
             ],
             "explanation": "Laura is worried about the ethical implications of the AI tool she's developing.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions3/00-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions3/00-question.mp3"
         },
         {
             "id": 11,
@@ -183,7 +183,7 @@
                 "action plan"
             ],
             "explanation": "James recommends that Laura research existing frameworks and guidelines related to AI ethics.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions3/01-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions3/01-question.mp3"
         },
         {
             "id": 12,
@@ -203,7 +203,7 @@
                 "research quality"
             ],
             "explanation": "He advises her to seek reputable sources like academic publications and industry standards for better guidance.",
-            "audioUrl": "celpip/audio/celpip-exam7-question1/questions3/02-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question1/questions3/02-question.mp3"
         }
     ]
 }

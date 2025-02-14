@@ -5,7 +5,7 @@
             "id": 1,
             "question": "Artificial Intelligence in Daily Work Life",
             "type": "listening",
-            "audioUrl": "celpip/audio/celpip-exam7-question2/conversation/conversation.mp3",
+            "audioUrl": "audio/celpip-exam7-question2/conversation/conversation.mp3",
             "next": 2,
             "timeLimit": 160
         },
@@ -27,7 +27,7 @@
                 "overall understanding"
             ],
             "explanation": "The conversation focuses on discussing the implications and potential benefits of implementing AI.",
-            "audioUrl": "celpip/audio/celpip-exam7-question2/questions/00-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question2/questions/00-question.mp3"
         },
         {
             "id": 3,
@@ -47,7 +47,7 @@
                 "inference"
             ],
             "explanation": "Mike mentions that some team members might be hesitant due to fears about job security.",
-            "audioUrl": "celpip/audio/celpip-exam7-question2/questions/01-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question2/questions/01-question.mp3"
         },
         {
             "id": 4,
@@ -67,7 +67,7 @@
                 "support material"
             ],
             "explanation": "Sarah proposes using graphs and success stories to make a compelling case during their meeting.",
-            "audioUrl": "celpip/audio/celpip-exam7-question2/questions/02-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question2/questions/02-question.mp3"
         },
         {
             "id": 5,
@@ -87,7 +87,7 @@
                 "inference"
             ],
             "explanation": "Mike expresses excitement and sees great potential in the AI proposal.",
-            "audioUrl": "celpip/audio/celpip-exam7-question2/questions/03-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question2/questions/03-question.mp3"
         },
         {
             "id": 6,
@@ -107,7 +107,7 @@
                 "schedule"
             ],
             "explanation": "Sarah suggests meeting the next day in the afternoon to brainstorm together.",
-            "audioUrl": "celpip/audio/celpip-exam7-question2/questions/04-question.mp3"
+            "audioUrl": "audio/celpip-exam7-question2/questions/04-question.mp3"
         }
     ]
 }

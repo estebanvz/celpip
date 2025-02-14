@@ -27,10 +27,12 @@ if (!currentQuestion) {
   return Astro.redirect("/404");
 }
 const nextId = currentQuestion.next;
-const path_astro = Astro.url;
+const path_astro = import.meta.env.BASE_URL;
+const url_astro = Astro.url.href
 const hasNextQuestion =
   nextId !== undefined && nextId !== null && nextId !== "null";
-
+  console.log(Astro.url)
+  console.log(currentQuestion)
 ---
 
 <Layout>
@@ -42,27 +44,53 @@ const hasNextQuestion =
           <h2 class="text-xl font-bold text-green-900 mb-4">
             Question {currentQuestion.id}
           </h2>
-          <p class="text-gray-700 mb-4">{currentQuestion.question}</p>
-          <!-- Timer Display -->
-          <p id="timer" class="text-red-600 font-bold mb-4">
-            Time Remaining: {currentQuestion.timeLimit} seconds
-          </p>
+          <!-- <p class="text-gray-700 mb-4">{currentQuestion.question}</p> -->
+          {currentQuestion.type === 'audio' ? (
+          <div>
+            {/* Hidden checkbox to track the click state */}
+            <input type="checkbox" id="hint-toggle" class="hidden" />
+      
+            {/* Button styled as a clickable element */}
+            <label for="hint-toggle" class="font-bold text-green-600 mb-4 hover:underline cursor-pointer border-1 py-1 px-2 rounded-xl">
+              Hint
+            </label>
+      
+            {/* Hint text that appears when the checkbox is checked */}
+            <p class="hidden mt-2 text-gray-700" id="hint-text">
+              {currentQuestion.question}
+            </p>
+      
+            {/* Style to reveal the hint text when the checkbox is checked */}
+            <style>
+              #hint-toggle:checked + label + #hint-text {
+                display: block !important;
+              }
+            </style>
+          </div>
+        ) : (
+          <h2 class="text-xl font-bold text-green-900 mb-4">
+            Question {currentQuestion.question}
+          </h2>
+        )}
+          
+
           <!-- Audio Player -->
           {
             (currentQuestion.type === "audio" ||
               currentQuestion.type === "transcript" ||
               currentQuestion.type === "listening") && (
-              <div class="mb-4">
+              <div class="my-4">
                 <audio controls class="w-full" autoplay>
-                  <source
-                    src={currentQuestion.audioUrl}
-                    type="audio/mp3"
-                  />
+                  <source src={import.meta.env.BASE_URL+currentQuestion.audioUrl} type="audio/mp3" />
                   Your browser does not support the audio element.
                 </audio>
               </div>
             )
           }
+                    <!-- Timer Display -->
+                    <p id="timer" class="text-red-600 font-bold mb-4">
+                      Time Remaining: {currentQuestion.timeLimit} seconds
+                    </p>
           <!-- Explanation Placeholder -->
           <p class="text-sm italic text-gray-500">
             *Answers will be evaluated at the end of the exam.
@@ -130,7 +158,7 @@ const hasNextQuestion =
 </Layout>
 
 <!-- Client-Side Script for Event Handling -->
-<script define:vars={{ currentQuestion, examName, path_astro }}>
+<script define:vars={{ currentQuestion, examName, path_astro, url_astro }}>
   // Initialize local storage for tracking exam data
   let examData;
   try {
@@ -204,7 +232,7 @@ const hasNextQuestion =
     clearInterval(timerInterval); // Stop the timer
 
     if (nextButton) {
-      window.location.href = `${path_astro}/exam/${examName}/${currentQuestion.next}`;
+      window.location.href = `${url_astro.split('/').slice(0, -1).join('/')}/${currentQuestion.next}`;
     } else {
       window.location.href = `${path_astro}/results/${examName}`;
     }

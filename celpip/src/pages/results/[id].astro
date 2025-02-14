@@ -4,13 +4,23 @@ import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   // Helper function to fetch exams (defined inside getStaticPaths)
   const getExams = async () => {
-    const questions = await import(`../../data/exams.json`);
-    return questions.default;
+    const examsData = await import(`../../data/exams.json`);
+    return examsData.default;
   };
+
+  // Fetch the exams data
   const exams = await getExams();
-  return exams.map((exam) => ({
-    params: { id: exam.id.toString() },
-  }));
+
+  // Generate paths for each question in each exam
+  const paths = exams.flatMap((exam) =>
+    exam.questions.map((question) => ({
+      params: {
+        id: question.id, // Question ID
+      },
+    }))
+  );
+
+  return paths;
 }
 
 const params = Astro.params;
@@ -31,7 +41,7 @@ const examId = params.id;
 
         <!-- Action Button -->
         <a
-          href={new URL(`exams`, Astro.url).pathname}
+          href={import.meta.env.BASE_URL+`exams`}
           id="more-practice"
           class="my-4 block bg-green-800 hover:bg-green-900 text-white font-bold py-3 px-6 rounded-full w-full text-center transition duration-300 shadow-lg"
         >
@@ -44,7 +54,7 @@ const examId = params.id;
         </h2>
         <div
           id="question-analysis"
-          class="space-y-6 max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+          class="space-y-6 scrollbar-thumb-gray-300 scrollbar-track-gray-100"
         >
           <!-- Questions will be dynamically populated here -->
         </div>
