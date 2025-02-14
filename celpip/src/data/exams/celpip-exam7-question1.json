@@ -1,0 +1,209 @@
+{
+    "name": "celpip-exam7-question1",
+    "questions": [
+        {
+            "id": 1,
+            "question": "Challenges of Artificial Intelligence",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam7-question1/conversation1/conversation1.mp3",
+            "next": 2,
+            "timeLimit": 160
+        },
+        {
+            "id": 2,
+            "question": "What project is Laura working on?",
+            "type": "audio",
+            "options": [
+                "Creating a marketing campaign",
+                "Developing an AI tool",
+                "Designing a website",
+                "Conducting a survey"
+            ],
+            "answer": "Developing an AI tool",
+            "next": 3,
+            "timeLimit": 30,
+            "tags": [
+                "project identification",
+                "summary"
+            ],
+            "explanation": "Laura is stressed about developing a new AI tool.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions1/00-question.mp3"
+        },
+        {
+            "id": 3,
+            "question": "What specific challenge is Laura facing with her project?",
+            "type": "audio",
+            "options": [
+                "Integration of machine learning algorithms",
+                "Marketing strategies",
+                "Budget constraints",
+                "Team collaboration issues"
+            ],
+            "answer": "Integration of machine learning algorithms",
+            "next": 4,
+            "timeLimit": 30,
+            "tags": [
+                "problem identification",
+                "detail"
+            ],
+            "explanation": "Laura's main issue is integrating machine learning algorithms effectively.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions1/01-question.mp3"
+        },
+        {
+            "id": 4,
+            "question": "What suggestion does James give Laura about her data?",
+            "type": "audio",
+            "options": [
+                "Ignore it",
+                "Consider augmenting it",
+                "Scrap the project",
+                "Expand her team"
+            ],
+            "answer": "Consider augmenting it",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "solution suggestion",
+                "strategy"
+            ],
+            "explanation": "James suggests that Laura considers augmenting her data to improve the quality.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions1/02-question.mp3"
+        },
+        {
+            "id": 5,
+            "question": "Challenges of Artificial Intelligence",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam7-question1/conversation2/conversation2.mp3",
+            "next": 6,
+            "timeLimit": 160
+        },
+        {
+            "id": 6,
+            "question": "What does Laura find complex about her project?",
+            "type": "audio",
+            "options": [
+                "Travel logistics",
+                "Data presentation",
+                "Team dynamics",
+                "Budgeting"
+            ],
+            "answer": "Data presentation",
+            "next": 7,
+            "timeLimit": 30,
+            "tags": [
+                "challenge identification",
+                "summary"
+            ],
+            "explanation": "Laura finds presenting AI data to be complex.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions2/00-question.mp3"
+        },
+        {
+            "id": 7,
+            "question": "What suggestion does James make to simplify Laura's findings?",
+            "type": "audio",
+            "options": [
+                "Use more tables",
+                "Focus on graphs",
+                "Add more data",
+                "Remove visuals"
+            ],
+            "answer": "Focus on graphs",
+            "next": 8,
+            "timeLimit": 30,
+            "tags": [
+                "solution suggestion",
+                "presentation techniques"
+            ],
+            "explanation": "James suggests using clear graphs to explain the findings.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions2/01-question.mp3"
+        },
+        {
+            "id": 8,
+            "question": "How does James advise Laura to handle questions during her presentation?",
+            "type": "audio",
+            "options": [
+                "Ignore them",
+                "Rehearse extensively",
+                "Stay calm and say you'll check if unsure",
+                "Cut the Q&A session short"
+            ],
+            "answer": "Stay calm and say you'll check if unsure",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "presentation skills",
+                "advice"
+            ],
+            "explanation": "James advises her to stay calm and say she'll look into any unknown answers.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions2/02-question.mp3"
+        },
+        {
+            "id": 9,
+            "question": "Challenges of Artificial Intelligence",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam7-question1/conversation3/conversation3.mp3",
+            "next": 10,
+            "timeLimit": 160
+        },
+        {
+            "id": 10,
+            "question": "What concern does Laura express about her project?",
+            "type": "audio",
+            "options": [
+                "Technical requirements",
+                "Budget issues",
+                "AI ethics",
+                "Team structure"
+            ],
+            "answer": "AI ethics",
+            "next": 11,
+            "timeLimit": 30,
+            "tags": [
+                "concern identification",
+                "summary"
+            ],
+            "explanation": "Laura is worried about the ethical implications of the AI tool she's developing.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions3/00-question.mp3"
+        },
+        {
+            "id": 11,
+            "question": "What is James's recommendation for addressing AI ethics?",
+            "type": "audio",
+            "options": [
+                "Ignore the topic",
+                "Research existing frameworks and guidelines",
+                "Consult with friends",
+                "Skip the section in her report"
+            ],
+            "answer": "Research existing frameworks and guidelines",
+            "next": 12,
+            "timeLimit": 30,
+            "tags": [
+                "solution suggestion",
+                "action plan"
+            ],
+            "explanation": "James recommends that Laura research existing frameworks and guidelines related to AI ethics.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions3/01-question.mp3"
+        },
+        {
+            "id": 12,
+            "question": "What type of sources does James suggest Laura look for?",
+            "type": "audio",
+            "options": [
+                "Social media threads",
+                "Academic publications and industry standards",
+                "Blogs from tech enthusiasts",
+                "Personal anecdotes from her team"
+            ],
+            "answer": "Academic publications and industry standards",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "resource recommendation",
+                "research quality"
+            ],
+            "explanation": "He advises her to seek reputable sources like academic publications and industry standards for better guidance.",
+            "audioUrl": "/audio/celpip-exam7-question1/questions3/02-question.mp3"
+        }
+    ]
+}

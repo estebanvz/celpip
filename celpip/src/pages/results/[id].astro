@@ -1,0 +1,131 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  // Helper function to fetch exams (defined inside getStaticPaths)
+  const getExams = async () => {
+    const questions = await import(`../../data/exams.json`);
+    return questions.default;
+  };
+  const exams = await getExams();
+  return exams.map((exam) => ({
+    params: { id: exam.id.toString() },
+  }));
+}
+
+const params = Astro.params;
+const examId = params.id;
+---
+
+<Layout>
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div
+        class="max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-xl text-center"
+      >
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-green-900 mb-8">Exam Results</h1>
+
+        <!-- Score Summary -->
+        <div id="score-summary" class="mb-8"></div>
+
+        <!-- Action Button -->
+        <a
+          href={`/exams`}
+          id="more-practice"
+          class="my-4 block bg-green-800 hover:bg-green-900 text-white font-bold py-3 px-6 rounded-full w-full text-center transition duration-300 shadow-lg"
+        >
+          More Practice
+        </a>
+
+        <!-- Question Analysis Placeholder -->
+        <h2 class="text-xl font-semibold text-gray-700 mb-6">
+          Question Analysis
+        </h2>
+        <div
+          id="question-analysis"
+          class="space-y-6 max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+        >
+          <!-- Questions will be dynamically populated here -->
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<!-- Client-Side Script for Retrieving LocalStorage Data -->
+<script define:vars={{ examId }}>
+  let examData = {};
+  try {
+    const storedData = localStorage.getItem(examId); // Use exam ID as the key
+    if (storedData) {
+      examData = JSON.parse(storedData);
+    } else {
+      console.error("No exam data found in localStorage.");
+    }
+  } catch (error) {
+    console.error("Error retrieving exam data from localStorage:", error);
+  }
+
+  // Analyze performance metrics
+  const totalQuestions = Object.keys(examData).length || 0;
+  const correctAnswers =
+    Object.values(examData).filter((attempt) => attempt.isCorrect).length || 0;
+  const errorCount = totalQuestions - correctAnswers;
+
+  // Calculate CELPIP-like score based on the provided scale
+  const calculateScore = (correctAnswers, totalQuestions) => {
+    const accuracy = correctAnswers / totalQuestions;
+    if (accuracy >= 35 / 38) return "10-12";
+    if (accuracy >= 33 / 38) return "9";
+    if (accuracy >= 30 / 38) return "8";
+    if (accuracy >= 27 / 38) return "7";
+    if (accuracy >= 22 / 38) return "6";
+    if (accuracy >= 17 / 38) return "5";
+    if (accuracy >= 11 / 38) return "4";
+    if (accuracy >= 7 / 38) return "3";
+    return "M"; // Lowest score
+  };
+
+  const celpipScore = calculateScore(correctAnswers, totalQuestions);
+
+  // Populate score summary
+  const scoreSummary = document.getElementById("score-summary");
+  scoreSummary.innerHTML = `
+    <div class="bg-gradient-to-r from-green-100 to-green-200 p-6 rounded-2xl shadow-md">
+      <h2 class="text-2xl font-bold text-green-900 mb-4">Your CELPIP Score</h2>
+      <p class="text-4xl font-bold text-green-900 mt-4">${celpipScore}</p>
+      <p class="text-lg text-gray-700">Total Questions: ${totalQuestions}</p>
+      <p class="text-lg text-gray-700">Correct Answers: ${correctAnswers}</p>
+      <p class="text-lg text-gray-700">Errors: ${errorCount}</p>
+      <p class="text-sm text-gray-600 italic mt-2">
+        Based on the CELPIP scoring scale:
+        <br />
+        10-12: High Proficiency | 8-9: Proficiency | 7: Strong <br /> 5-6: Effective | 3-4: Improving | M: Introductory
+      </p>
+    </div>
+  `;
+
+  // Populate question analysis
+  const questionAnalysis = document.getElementById("question-analysis");
+  Object.values(examData).forEach((attempt) => {
+    const listItem = document.createElement("div");
+    listItem.className = `p-6 rounded-2xl ${
+      attempt.isCorrect
+        ? "bg-green-50 border border-green-200"
+        : "bg-red-50 border border-red-200"
+    }`;
+    listItem.innerHTML = `
+      <div class="flex items-center justify-between mb-2">
+        <p class="font-semibold text-lg">${attempt.questionText}</p>
+      </div>
+      <div class="flex justify-between text-sm text-gray-600">
+        <span>Your Answer: <span class="font-medium">${attempt.answerSelected || "Not answered"}</span></span>
+        <span>Correct Answer: <span class="font-medium">${attempt.correctAnswer}</span></span>
+      </div>
+      <span class="font-medium">${attempt.isCorrect ? "" : attempt.explanation || ""}</span>
+      <p class="text-xs text-gray-500 mt-2">Time Taken: ${attempt.timeToAnswer} / ${attempt.timeLimit} seconds</p>
+    `;
+    questionAnalysis.appendChild(listItem);
+  });
+</script>

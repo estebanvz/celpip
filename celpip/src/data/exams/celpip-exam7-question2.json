@@ -1,0 +1,113 @@
+{
+    "name": "celpip-exam7-question2",
+    "questions": [
+        {
+            "id": 1,
+            "question": "Artificial Intelligence in Daily Work Life",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam7-question2/conversation/conversation.mp3",
+            "next": 2,
+            "timeLimit": 160
+        },
+        {
+            "id": 2,
+            "question": "What is the main purpose of Sarah and Mike's conversation?",
+            "type": "audio",
+            "options": [
+                "To discuss their weekend plans.",
+                "To evaluate a proposal about using AI in their work.",
+                "To express their concerns about job security.",
+                "To complain about their workload."
+            ],
+            "answer": "To evaluate a proposal about using AI in their work.",
+            "next": 3,
+            "timeLimit": 30,
+            "tags": [
+                "main idea",
+                "overall understanding"
+            ],
+            "explanation": "The conversation focuses on discussing the implications and potential benefits of implementing AI.",
+            "audioUrl": "/audio/celpip-exam7-question2/questions/00-question.mp3"
+        },
+        {
+            "id": 3,
+            "question": "What concerns do Sarah and Mike believe the team might have about AI?",
+            "type": "audio",
+            "options": [
+                "They may dislike the idea of change.",
+                "They might be unsure about its effectiveness.",
+                "They could be worried about job security.",
+                "They may not understand how it works."
+            ],
+            "answer": "They could be worried about job security.",
+            "next": 4,
+            "timeLimit": 30,
+            "tags": [
+                "specific detail",
+                "inference"
+            ],
+            "explanation": "Mike mentions that some team members might be hesitant due to fears about job security.",
+            "audioUrl": "/audio/celpip-exam7-question2/questions/01-question.mp3"
+        },
+        {
+            "id": 4,
+            "question": "What does Sarah suggest to help the team understand AI better?",
+            "type": "audio",
+            "options": [
+                "Providing a detailed manual.",
+                "Gathering feedback from the team members.",
+                "Using visual aids and examples from successful companies.",
+                "Organizing an external workshop."
+            ],
+            "answer": "Using visual aids and examples from successful companies.",
+            "next": 5,
+            "timeLimit": 30,
+            "tags": [
+                "specific detail",
+                "support material"
+            ],
+            "explanation": "Sarah proposes using graphs and success stories to make a compelling case during their meeting.",
+            "audioUrl": "/audio/celpip-exam7-question2/questions/02-question.mp3"
+        },
+        {
+            "id": 5,
+            "question": "What is Mike’s attitude towards the AI proposal?",
+            "type": "audio",
+            "options": [
+                "Negative and skeptical.",
+                "Indifferent and apathetic.",
+                "Excited and hopeful.",
+                "Confused and unsure."
+            ],
+            "answer": "Excited and hopeful.",
+            "next": 6,
+            "timeLimit": 30,
+            "tags": [
+                "speaker attitude",
+                "inference"
+            ],
+            "explanation": "Mike expresses excitement and sees great potential in the AI proposal.",
+            "audioUrl": "/audio/celpip-exam7-question2/questions/03-question.mp3"
+        },
+        {
+            "id": 6,
+            "question": "When do Sarah and Mike plan to meet again to discuss the proposal?",
+            "type": "audio",
+            "options": [
+                "Tomorrow morning.",
+                "Tomorrow afternoon.",
+                "Next week.",
+                "In a few days."
+            ],
+            "answer": "Tomorrow afternoon.",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "specific detail",
+                "schedule"
+            ],
+            "explanation": "Sarah suggests meeting the next day in the afternoon to brainstorm together.",
+            "audioUrl": "/audio/celpip-exam7-question2/questions/04-question.mp3"
+        }
+    ]
+}

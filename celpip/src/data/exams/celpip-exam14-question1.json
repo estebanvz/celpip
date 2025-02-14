@@ -1,0 +1,149 @@
+{
+    "name": "celpip-exam14-question1",
+    "questions": [
+        {
+            "id": 1,
+            "question": "Planning a Community Event",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam14-question1/conversation1/conversation1.mp3",
+            "next": 2,
+            "timeLimit": 160
+        },
+        {
+            "id": 2,
+            "question": "What is Emily planning to organize?",
+            "type": "audio",
+            "options": [
+                "A community picnic",
+                "A birthday party",
+                "A charity event",
+                "A music festival"
+            ],
+            "answer": "A community picnic",
+            "next": 3,
+            "timeLimit": 30,
+            "tags": [
+                "listening",
+                "identification"
+            ],
+            "explanation": "Emily is discussing the details of organizing a community picnic.",
+            "audioUrl": "/audio/celpip-exam14-question1/questions1/00-question.mp3"
+        },
+        {
+            "id": 3,
+            "question": "What suggestion does James give about scheduling?",
+            "type": "audio",
+            "options": [
+                "To choose a specific date",
+                "To send out a survey",
+                "To discuss it later",
+                "To hold it at his house"
+            ],
+            "answer": "To send out a survey",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "listening",
+                "advice"
+            ],
+            "explanation": "James suggests sending a survey to determine which dates work best for most people.",
+            "audioUrl": "/audio/celpip-exam14-question1/questions1/01-question.mp3"
+        },
+        {
+            "id": 4,
+            "question": "Planning a Community Event",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam14-question1/conversation2/conversation2.mp3",
+            "next": 5,
+            "timeLimit": 160
+        },
+        {
+            "id": 5,
+            "question": "What type of food does James suggest?",
+            "type": "audio",
+            "options": [
+                "Catering only",
+                "Potluck style",
+                "Fast food",
+                "Snack bars"
+            ],
+            "answer": "Potluck style",
+            "next": 6,
+            "timeLimit": 30,
+            "tags": [
+                "listening",
+                "options"
+            ],
+            "explanation": "James suggests a potluck style where everyone can bring a dish.",
+            "audioUrl": "/audio/celpip-exam14-question1/questions2/00-question.mp3"
+        },
+        {
+            "id": 6,
+            "question": "What is one activity James suggests for the picnic?",
+            "type": "audio",
+            "options": [
+                "Hiring a DJ",
+                "Organizing lawn games",
+                "Watching a movie",
+                "Doing a cooking class"
+            ],
+            "answer": "Organizing lawn games",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "listening",
+                "activity"
+            ],
+            "explanation": "James suggests organizing lawn games as an activity for the picnic.",
+            "audioUrl": "/audio/celpip-exam14-question1/questions2/01-question.mp3"
+        },
+        {
+            "id": 7,
+            "question": "Planning a Community Event",
+            "type": "listening",
+            "audioUrl": "/audio/celpip-exam14-question1/conversation3/conversation3.mp3",
+            "next": 8,
+            "timeLimit": 160
+        },
+        {
+            "id": 8,
+            "question": "What will Emily do next regarding the picnic?",
+            "type": "audio",
+            "options": [
+                "Ask James for help",
+                "Reach out to people for the survey",
+                "Start cooking food",
+                "Visit a park"
+            ],
+            "answer": "Reach out to people for the survey",
+            "next": 9,
+            "timeLimit": 30,
+            "tags": [
+                "listening",
+                "next steps"
+            ],
+            "explanation": "Emily plans to reach out to people for the survey about the picnic.",
+            "audioUrl": "/audio/celpip-exam14-question1/questions3/00-question.mp3"
+        },
+        {
+            "id": 9,
+            "question": "What does James offer to do on the day of the event?",
+            "type": "audio",
+            "options": [
+                "Organize food",
+                "Manage activities",
+                "Take photos",
+                "Lead the games"
+            ],
+            "answer": "Manage activities",
+            "next": null,
+            "timeLimit": 30,
+            "tags": [
+                "listening",
+                "volunteering"
+            ],
+            "explanation": "James offers to help manage some of the activities during the picnic.",
+            "audioUrl": "/audio/celpip-exam14-question1/questions3/01-question.mp3"
+        }
+    ]
+}

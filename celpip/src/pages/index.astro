@@ -1,0 +1,167 @@
+---
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative bg-transparent py-20 overflow-hidden">
+    <div
+      class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between"
+    >
+      <!-- Text Content -->
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-5xl font-bold text-green-900 mb-4">
+          Master the CELPIP Test with Confidence
+        </h2>
+        <p class="text-xl text-green-800 mb-6 max-w-md">
+          Sharpen your skills with practice questions designed to match the
+          CELPIP format. Get instant feedback to improve faster and boost your
+          score.
+        </p>
+        <a
+          href="#cta"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg"
+        >
+          Start Practicing Now
+        </a>
+      </div>
+
+      <!-- Image -->
+      <div class="md:w-1/2 flex justify-center">
+        <img
+          src="/images/ai-celpip.jpg"
+          alt="AI-powered CELPIP prep"
+          class="rounded-lg shadow-lg w-full md:w-4/5 lg:w-3/4 h-auto object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Gradient Overlay for Smooth Transition -->
+    <div
+      class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent"
+    >
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center text-green-900 mb-8">
+        Why Choose Us?
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105"
+        >
+          <img
+            src="/images/ai-icon.png"
+            alt="AI Icon"
+            class="mx-auto mb-4 w-16 h-16 rounded-full"
+          />
+          <h4 class="text-xl font-bold text-green-800 mb-2">
+            AI-Powered Questions
+          </h4>
+          <p class="text-gray-700">
+            Our AI generates realistic CELPIP questions to help you prepare
+            effectively.
+          </p>
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105"
+        >
+          <img
+            src="/images/feedback-icon.png"
+            alt="Feedback Icon"
+            class="mx-auto mb-4 w-16 h-16 rounded-full"
+          />
+          <h4 class="text-xl font-bold text-green-800 mb-2">
+            Personalized Feedback
+          </h4>
+          <p class="text-gray-700">
+            Get detailed feedback on your answers to improve your performance.
+          </p>
+        </div>
+        <div
+          class="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105"
+        >
+          <img
+            src="/images/results-icon.png"
+            alt="Results Icon"
+            class="mx-auto mb-4 w-16 h-16 rounded-full"
+          />
+          <h4 class="text-xl font-bold text-green-800 mb-2">Proven Results</h4>
+          <p class="text-gray-700">
+            Many students have improved their scores using our platform.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action (CTA) Section -->
+  <section id="cta" class="bg-green-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <!-- Heading -->
+      <h3 class="text-4xl font-bold mb-6">Start Your CELPIP Journey Today!</h3>
+      <p class="text-lg mb-8">
+        Access AI-generated CELPIP practice questions and get personalized
+        feedback to boost your score.
+      </p>
+      <!-- Call-to-Action Button -->
+      <a
+        href="exams"
+        rel="noopener noreferrer"
+        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg inline-flex items-center space-x-2"
+      >
+        <span>Start Free Exam Now</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+      <!-- Additional Info -->
+      <p class="mt-6 text-sm text-green-200">
+        Click "Start Free Exam Now" to access one free CELPIP practice exam.
+        After completing it, you'll have the option to unlock more exams and
+        advanced features through our affordable subscription plans.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonial Section
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center text-green-900 mb-8">What Our Users Say</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-4">
+          <img src="/images/user1.jpg" alt="User 1" class="w-16 h-16 rounded-full" />
+          <div>
+            <p class="text-gray-700 italic mb-2">
+              "The AI-generated questions helped me understand the CELPIP format better. I improved my score by 2 bands!"
+            </p>
+            <p class="font-bold text-green-800">— Sarah T.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-4">
+          <img src="/images/user2.jpg" alt="User 2" class="w-16 h-16 rounded-full" />
+          <div>
+            <p class="text-gray-700 italic mb-2">
+              "The personalized feedback was invaluable. I knew exactly where to focus my efforts."
+            </p>
+            <p class="font-bold text-green-800">— John D.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+</Layout>

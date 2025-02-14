@@ -1,0 +1,42 @@
+---
+// src/layouts/Layout.astro
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CELPIP Exam Prep with AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- Optional: For custom styles -->
+  </head>
+  <body
+    class="bg-gray-50 font-sans antialiased text-gray-700 flex flex-col min-h-screen"
+  >
+    <header class="bg-green-900 text-white py-4 sticky top-0 z-50">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <a href="/">
+          <h1 class="text-2xl md:flex hidden font-bold">CELPIP Exam Prep with AI</h1>
+          <h1 class="text-2xl flex md:hidden font-bold">CELPIP AI</h1>
+        </a>
+        <a
+          href="https://forms.gle/6wzxaXR9R1pVtwBa7"
+          class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 shadow-lg"
+        >
+          Premium Access
+        </a>
+      </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <slot />
+    </main>
+    <footer class="bg-green-900 text-white py-4 mt-auto">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2025 CELPIP-AI Exam Prep. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

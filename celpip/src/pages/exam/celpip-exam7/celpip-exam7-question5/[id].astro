@@ -1,0 +1,224 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  // Helper function to fetch exams (defined inside getStaticPaths)
+  const getExam = async () => {
+    const exam = await import(`../../../../data/exams/celpip-exam7-question5.json`);
+    return exam.default;
+  };
+  let result: any[] = [];
+  const exam = await getExam();
+  const questions = exam["questions"];
+  for (const question of questions) {
+    result.push({
+      params: { id: question.id.toString() },
+      props: { question: question, examName: exam["name"] },
+    });
+  }
+  return result;
+}
+
+const params = Astro.params;
+const props = Astro.props;
+const currentQuestion = props.question || {};
+const examName = props.examName || "";
+if (!currentQuestion) {
+  return Astro.redirect("/404");
+}
+const nextId = currentQuestion.next;
+const hasNextQuestion =
+  nextId !== undefined && nextId !== null && nextId !== "null";
+---
+
+<Layout>
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <main class="bg-white shadow-md rounded-lg p-8 flex flex-col md:flex-row">
+        <!-- Left Column: Question Details -->
+        <div class="w-full md:w-1/2 p-4 border-r border-gray-300">
+          <h2 class="text-xl font-bold text-green-900 mb-4">
+            Question {currentQuestion.id}
+          </h2>
+          <p class="text-gray-700 mb-4">{currentQuestion.question}</p>
+          <!-- Timer Display -->
+          <p id="timer" class="text-red-600 font-bold mb-4">
+            Time Remaining: {currentQuestion.timeLimit} seconds
+          </p>
+          <!-- Audio Player -->
+          {
+            (currentQuestion.type === "audio" ||
+              currentQuestion.type === "transcript" ||
+              currentQuestion.type === "listening") && (
+              <div class="mb-4">
+                <audio controls class="w-full" autoplay>
+                  <source src={currentQuestion.audioUrl} type="audio/mp3" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            )
+          }
+          <!-- Explanation Placeholder -->
+          <p class="text-sm italic text-gray-500">
+            *Answers will be evaluated at the end of the exam.
+          </p>
+        </div>
+
+        <!-- Right Column: User Interaction -->
+        <div class="w-full md:w-1/2 p-4">
+          <h2 class="text-xl font-bold text-green-900 mb-4">Your Response</h2>
+          <!-- Input or Options -->
+          {
+            currentQuestion.type === "text" ||
+            currentQuestion.type === "transcript" ? (
+              <input
+                type="text"
+                id="user-answer"
+                class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600 mb-4"
+                placeholder="Your answer"
+              />
+            ) : (
+              <div class="space-y-2">
+                {currentQuestion.options &&
+                  currentQuestion.options.map((option) => (
+                    <label class="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="option"
+                        value={option.toLowerCase()}
+                        class="form-radio text-green-600"
+                      />
+                      <span class="text-gray-700">{option}</span>
+                    </label>
+                  ))}
+              </div>
+            )
+          }
+
+          <!-- Next Question Button -->
+          {
+            hasNextQuestion && (
+              <button
+                id="next-question"
+                class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg"
+              >
+                Next Question
+              </button>
+            )
+          }
+
+          <!-- Finish Exam Button -->
+          {
+            !hasNextQuestion && (
+              <button
+                id="finish-exam"
+                class="mt-4 w-full bg-green-800 hover:bg-green-900 text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg"
+              >
+                Finish Exam
+              </button>
+            )
+          }
+        </div>
+      </main>
+    </div>
+  </section>
+</Layout>
+
+<!-- Client-Side Script for Event Handling -->
+<script define:vars={{ currentQuestion, examName }}>
+  // Initialize local storage for tracking exam data
+  let examData;
+  try {
+    const storedData = localStorage.getItem(`${examName}`);
+    if (storedData === null || storedData === "" || !storedData) {
+      examData = {};
+    } else {
+      examData = JSON.parse(storedData);
+    }
+  } catch (error) {
+    console.error("Error initializing localStorage:", error);
+    examData = {};
+  }
+
+  const nextButton = document.getElementById("next-question");
+  const finishButton = document.getElementById("finish-exam");
+  const userAnswerInput = document.getElementById("user-answer");
+  const timerDisplay = document.getElementById("timer");
+
+  let timeLeft = currentQuestion.timeLimit; // Start with the question's time limit
+  let timerInterval;
+
+  // Start the countdown timer
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      timeLeft -= 1;
+      timerDisplay.textContent = `Time Remaining: ${timeLeft} seconds`;
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        handleTimeout();
+      }
+    }, 1000);
+  }
+
+  // Handle timeout when the timer reaches zero
+  function handleTimeout() {
+    saveAnswerAndNavigate();
+  }
+
+  // Save the user's answer to localStorage
+  function saveAnswer() {
+    const userAnswer =
+      document.querySelector('input[name="option"]:checked')?.value ||
+      userAnswerInput?.value.trim().toLowerCase() ||
+      "";
+    isCorrect = userAnswer === currentQuestion.answer.toLowerCase();
+    examData[currentQuestion.id] = {
+      questionId: currentQuestion.id,
+      questionText: currentQuestion.question,
+      tags: currentQuestion.tags,
+      isCorrect: isCorrect,
+      answerSelected: userAnswer,
+      correctAnswer: currentQuestion.answer,
+      explanation: currentQuestion.explanation,
+      timeToAnswer: currentQuestion.timeLimit - timeLeft, // Time taken to answer
+      timeLimit: currentQuestion.timeLimit,
+    };
+
+    try {
+      localStorage.setItem(`${examName}`, JSON.stringify(examData));
+    } catch (error) {
+      console.error("Error saving to localStorage:", error);
+    }
+  }
+
+  // Save the answer and navigate to the next question or results page
+  function saveAnswerAndNavigate() {
+    if (currentQuestion.type !== "listening") {
+      saveAnswer();
+    }
+    clearInterval(timerInterval); // Stop the timer
+
+    if (nextButton) {
+      window.location.href = `/exam/${examName}/${currentQuestion.next}`;
+    } else {
+      window.location.href = `/results/${examName}`;
+    }
+  }
+
+  // Start the timer when the page loads
+  startTimer();
+
+  // Handle "Next Question" button click
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      saveAnswerAndNavigate();
+    });
+  }
+
+  // Handle "Finish Exam" button click
+  if (finishButton) {
+    finishButton.addEventListener("click", () => {
+      saveAnswerAndNavigate();
+    });
+  }
+</script>
