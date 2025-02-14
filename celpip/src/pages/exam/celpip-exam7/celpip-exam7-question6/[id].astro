@@ -232,7 +232,8 @@ const hasNextQuestion =
     clearInterval(timerInterval); // Stop the timer
 
     if (nextButton) {
-      window.location.href = `${url_astro.split('/').slice(0, -1).join('/')}/${currentQuestion.next}`;
+      const trimmedUrl = url_astro.replace(/\/+$/, '');
+      window.location.href = `${trimmedUrl.split('/').slice(0, -1).join('/')}/${currentQuestion.next}`;
     } else {
       window.location.href = `${path_astro}/results/${examName}`;
     }
