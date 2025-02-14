@@ -65,8 +65,8 @@ function replaceIdInAstroFile(filePath, newId) {
 }
 
 // Example usage:
-const jsonFilePath = 'listening/src/data/exams.json'; // Replace with your JSON file path
-const examPagesPath = 'listening/src/pages/exam'; // Replace with the path to your source folders
-const templateFile = 'listening/src/layouts/[id].astro'; // Replace with the path to your destination folders
+const jsonFilePath = 'celpip/src/data/exams.json'; // Replace with your JSON file path
+const examPagesPath = 'celpip/src/pages/exam'; // Replace with the path to your source folders
+const templateFile = 'celpip/src/layouts/[id].astro'; // Replace with the path to your destination folders
 
 processJsonAndFolders(jsonFilePath, examPagesPath, templateFile);

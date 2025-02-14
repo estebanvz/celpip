@@ -31,7 +31,7 @@ const examId = params.id;
 
         <!-- Action Button -->
         <a
-          href={`/exams`}
+          href={new URL(`exams`, Astro.url).pathname}
           id="more-practice"
           class="my-4 block bg-green-800 hover:bg-green-900 text-white font-bold py-3 px-6 rounded-full w-full text-center transition duration-300 shadow-lg"
         >

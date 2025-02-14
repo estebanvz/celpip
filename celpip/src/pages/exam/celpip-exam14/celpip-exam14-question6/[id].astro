@@ -27,6 +27,7 @@ if (!currentQuestion) {
   return Astro.redirect("/404");
 }
 const nextId = currentQuestion.next;
+const path_astro = Astro.url;
 const hasNextQuestion =
   nextId !== undefined && nextId !== null && nextId !== "null";
 ---
@@ -52,7 +53,10 @@ const hasNextQuestion =
               currentQuestion.type === "listening") && (
               <div class="mb-4">
                 <audio controls class="w-full" autoplay>
-                  <source src={currentQuestion.audioUrl} type="audio/mp3" />
+                  <source
+                    src={new URL(currentQuestion.audioUrl, Astro.url).pathname}
+                    type="audio/mp3"
+                  />
                   Your browser does not support the audio element.
                 </audio>
               </div>
@@ -125,7 +129,7 @@ const hasNextQuestion =
 </Layout>
 
 <!-- Client-Side Script for Event Handling -->
-<script define:vars={{ currentQuestion, examName }}>
+<script define:vars={{ currentQuestion, examName, path_astro }}>
   // Initialize local storage for tracking exam data
   let examData;
   try {
@@ -199,9 +203,9 @@ const hasNextQuestion =
     clearInterval(timerInterval); // Stop the timer
 
     if (nextButton) {
-      window.location.href = `/exam/${examName}/${currentQuestion.next}`;
+      window.location.href = `${path_astro}/exam/${examName}/${currentQuestion.next}`;
     } else {
-      window.location.href = `/results/${examName}`;
+      window.location.href = `${path_astro}/results/${examName}`;
     }
   }
 

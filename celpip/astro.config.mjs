@@ -4,7 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://estebanvz.github.io/celpip/',
+  site: 'https://estebanvz.github.io',
+  base: '/celpip/',
   vite: {
     plugins: [tailwindcss()],
     server: {

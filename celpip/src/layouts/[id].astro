@@ -27,6 +27,7 @@ if (!currentQuestion) {
   return Astro.redirect("/404");
 }
 const nextId = currentQuestion.next;
+const path_astro = Astro.url;
 const hasNextQuestion =
   nextId !== undefined && nextId !== null && nextId !== "null";
 ---
@@ -125,7 +126,7 @@ const hasNextQuestion =
 </Layout>
 
 <!-- Client-Side Script for Event Handling -->
-<script define:vars={{ currentQuestion, examName }}>
+<script define:vars={{ currentQuestion, examName, path_astro }}>
   // Initialize local storage for tracking exam data
   let examData;
   try {
@@ -199,9 +200,9 @@ const hasNextQuestion =
     clearInterval(timerInterval); // Stop the timer
 
     if (nextButton) {
-      window.location.href = `/exam/${examName}/${currentQuestion.next}`;
+      window.location.href = `${path_astro}/exam/${examName}/${currentQuestion.next}`;
     } else {
-      window.location.href = `/results/${examName}`;
+      window.location.href = `${path_astro}/results/${examName}`;
     }
   }
 

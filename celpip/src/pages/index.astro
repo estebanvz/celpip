@@ -30,7 +30,7 @@ import Layout from "../layouts/Layout.astro";
       <!-- Image -->
       <div class="md:w-1/2 flex justify-center">
         <img
-          src="/images/ai-celpip.jpg"
+          src={new URL("images/ai-celpip.jpg", Astro.url).pathname}
           alt="AI-powered CELPIP prep"
           class="rounded-lg shadow-lg w-full md:w-4/5 lg:w-3/4 h-auto object-cover"
         />
@@ -55,7 +55,7 @@ import Layout from "../layouts/Layout.astro";
           class="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105"
         >
           <img
-            src="/images/ai-icon.png"
+            src={new URL("images/ai-icon.png", Astro.url).pathname}
             alt="AI Icon"
             class="mx-auto mb-4 w-16 h-16 rounded-full"
           />
@@ -71,7 +71,7 @@ import Layout from "../layouts/Layout.astro";
           class="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105"
         >
           <img
-            src="/images/feedback-icon.png"
+            src={new URL("images/feedback-icon.png", Astro.url).pathname}
             alt="Feedback Icon"
             class="mx-auto mb-4 w-16 h-16 rounded-full"
           />
@@ -86,7 +86,7 @@ import Layout from "../layouts/Layout.astro";
           class="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105"
         >
           <img
-            src="/images/results-icon.png"
+            src={new URL("images/results-icon.png", Astro.url).pathname}
             alt="Results Icon"
             class="mx-auto mb-4 w-16 h-16 rounded-full"
           />
